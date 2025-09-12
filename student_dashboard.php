@@ -6,31 +6,31 @@ error_reporting(E_ALL);
 session_start();
 require "db.php";
 
-// لو مش طالب يرجعه للـ login
+
 if (!isset($_SESSION["role"]) || $_SESSION["role"] != "student") {
     header("Location: login.php");
     exit();
 }
 
-// بيانات الطالب
+
 $user_id = $_SESSION["user_id"];
 $user_sql = "SELECT * FROM users WHERE id=$user_id";
 $user_result = $conn->query($user_sql);
 $user = $user_result->fetch_assoc();
 
-// لو ضغط استعارة كتاب
+
 if (isset($_POST["borrow"])) {
     $book_id = $_POST["book_id"];
 
-    // تأكد إن الكتاب متاح
+    
     $check_sql = "SELECT * FROM books WHERE id=$book_id AND avilable > 0";
     $check_result = $conn->query($check_sql);
 
     if ($check_result->num_rows == 1) {
-        // أضف استعارة
+        
         $conn->query("INSERT INTO borrows (user_id, book_id) VALUES ($user_id, $book_id)");
 
-        // قلل النسخة المتاحة
+    
         $conn->query("UPDATE books SET avilable = avilable - 1 WHERE id=$book_id");
 
         echo "<p style='color:green'>borrow sucsse</p>";
@@ -39,15 +39,66 @@ if (isset($_POST["borrow"])) {
     }
 }
 
-// عرض الكتب المتاحة
+
 $books_sql = "SELECT * FROM books WHERE avilable > 0";
 $books_result = $conn->query($books_sql);
 ?>
+<html>
+    <head>
+        <title>Student Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+       body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    direction: rtl; 
+    text-align: left; 
+    line-height: 1.6;
 
+  }
+  h2, h3 {
+    margin-top: 30px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  form {
+    margin: 0;
+  }
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+
+  }
+  a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>
+    </head>
+<body>
 <h2>مرحباً <?php echo $user["name"]; ?> 👋</h2>
 <p>الإيميل: <?php echo $user["email"]; ?></p>
 
-<h3>📚 الكتب المتاحة للاستعارة:</h3>
+<h3>📚 Available books for borrowing:</h3>
 <table border="1" cellpadding="5">
     <tr>
         <th>title</th>
@@ -90,4 +141,6 @@ $books_result = $conn->query($books_sql);
 </table>
 
 <br>
-<a href="logout.php">logout</a>
+<a href="logout.php" >logout</a>
+</body>
+</html>

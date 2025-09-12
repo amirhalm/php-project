@@ -34,9 +34,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+           body {
+              font-family: Arial, sans-serif;
+              display: flex; 
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background-color: rgb(245, 245, 220);
+              background-image: url('كتب2.jpg');
+              background-size: cover;
+              background-position: center;
+              opacity: 1;
+              filter: none; }
+            .container {
+                text-align: center;}
+            input { margin: 5px 0; 
+                padding: 8px;
+                 width: 200px;; }
+            button { padding: 8px 16px; 
+                 background-color: #28a745; 
+                 color: white; 
+                 border: none; 
+                 cursor: pointer; }
+        </style>
+    </head>
+<body>  
+    <div class="container">
 <form method="POST">
         Email: <input type="email" name="email" required><br>
     Password: <input type="password" name="password" required><br>
     <button type="submit">login</button>
-</form>
+</form><br>
+<p>Don't have an account? <a href="sign.php">Sign up</a></p>
+</div>
+</body>
+</html>
