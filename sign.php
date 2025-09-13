@@ -27,17 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-           body {
-              font-family: Arial, sans-serif;
+           body { font-family: Arial, sans-serif;
               display: flex; 
               justify-content: center;
               align-items: center;
               height: 100vh;
               background-color: rgb(245, 245, 220);
-              background-image: url('كتب2.jpg');
-              background-size: cover;
-              background-position: center;
+              background-image: url('WhatsApp Image 2025-09-12 at 7.05.21 PM.jpeg');
               opacity: 1;
+                background-size: contain;
+              background-repeat: no-repeat;
+                background-position: center;
               filter: none; }
             .container {
                 text-align: center;}

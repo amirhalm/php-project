@@ -47,10 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               align-items: center;
               height: 100vh;
               background-color: rgb(245, 245, 220);
-              background-image: url('كتب2.jpg');
-              background-size: cover;
-              background-position: center;
+              background-image: url('WhatsApp Image 2025-09-12 at 7.05.21 PM.jpeg');
               opacity: 1;
+                background-size: contain;
+              background-repeat: no-repeat;
+                background-position: center;
               filter: none; }
             .container {
                 text-align: center;}

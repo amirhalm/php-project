@@ -53,14 +53,18 @@ $books_result = $conn->query($books_sql);
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 20px auto;
-    background-color: #f9f9f9;
+      background-color: rgb(245, 245, 220);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     direction: rtl; 
     text-align: left; 
     line-height: 1.6;
-
+    background-image: url('WhatsApp Image 2025-09-12 at 7.05.21 PM.jpeg');
+    background-size: contain;
+   
+    background-position: cover;
+    filter: none;
   }
   h2, h3 {
     margin-top: 30px;
@@ -68,6 +72,7 @@ $books_result = $conn->query($books_sql);
   table {
     width: 100%;
     border-collapse: collapse;
+     background-color: #E2B76D;
     margin-bottom: 30px;
   }
   th, td {
@@ -87,11 +92,24 @@ $books_result = $conn->query($books_sql);
   a {
   color: red;
   text-decoration: none;
+  border: 1px solid red;
+    padding: 5px 10px;
 }
 
 a:hover {
   text-decoration: underline;
 }
+button {
+    padding: 8px 16px; 
+    background-color: rgb(245, 245, 220) ; 
+    color: brown; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px;
+  }
+  button:hover {
+    background-color:#F0C36D;
+  }
 </style>
     </head>
 <body>
