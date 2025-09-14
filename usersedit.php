@@ -41,6 +41,31 @@ $sql = "UPDATE users SET name='$name', email='$email', role='$role', password='$
 <head>
     <meta charset="UTF-8">
     <title>users edit</title>
+     <style>
+           body {
+              font-family: Arial, sans-serif;
+              display: flex; 
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background-color: rgb(245, 245, 220);
+              background-image: url('book.jpeg');
+              opacity: 1;
+                background-size: contain;
+              background-repeat: no-repeat;
+                background-position: center;
+              filter: none; }
+            .container {
+                text-align: center;}
+            input { margin: 5px 0; 
+                padding: 8px;
+                 width: 200px;; }
+            button { padding: 8px 16px; 
+                 background-color: #28a745; 
+                 color: white; 
+                 border: none; 
+                 cursor: pointer; }
+        </style>
 </head>
 <body>
     <h1>user edit</h1>
